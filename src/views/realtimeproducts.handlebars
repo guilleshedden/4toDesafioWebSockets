@@ -1,0 +1,46 @@
+<main>
+    <h1>Realtime Products</h1>
+
+    <section>
+        <div class="forms-container">
+            <p>Product Interface</p>
+            <div class="interface">
+                <label>ID*</label>
+                <input id="id" type="number" placeholder="ID">
+                <label>Title</label>
+                <input id="title" type="text" value="Lulululu" placeholder="Title" required>
+                <label>Description</label>
+                <input id="description" type="text" value="Un producto más" placeholder="Description" required>
+                <label>Code</label>
+                <input type="text" id="code" value="Abc27" placeholder="code" required>
+                <label>Price</label>
+                <input type="number" id="price" value="5460" placeholder="Price" required>
+                <label>Stock</label>
+                <input type="number" id="stock" value="120" placeholder="Stock" required>
+                <label>Category</label>
+                <input type="text" id="category" value="Wooden Puzzle" placeholder="Category" required>
+                <p>* El ID es sólo requerido para realizar un Update y un Delete. Es ignorado en el Add.</p>
+            </div>
+            <div class="buttons">
+                <button id="add">Add</button>
+                <button id="update">Update</button>
+                <button id="del">Delete</button>
+            </div>
+            <div id="messages">
+            </div>
+        </div>
+        <div id="products-container">
+            {{#each products}}
+                <div class="product-container">
+                    <p class="product-title">{{title}}</p>
+                    <p class="product-data">ID: {{id}}</p>
+                    <p class="product-data">Code: {{code}}</p>
+                    <p class="product-data">Price: {{price}}</p>
+                    <p class="product-data">Stock: {{stock}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+</main>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/realtimeproducts.js"></script>
